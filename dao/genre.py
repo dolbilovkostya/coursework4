@@ -8,8 +8,10 @@ class GenreDAO:
     def get_one(self, bid):
         return self.session.query(Genre).get(bid)
 
-    def get_all(self):
-        return self.session.query(Genre).all()
+    def get_all(self, filters):
+        page = filters.get('page')
+        stmt = self.session.query(Genre)
+        return stmt.paginate(page=page, per_page=12).items
 
     def create(self, genre_d):
         ent = Genre(**genre_d)
