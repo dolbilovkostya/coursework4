@@ -6,4 +6,5 @@ class Config(object):
     PWD_SALT = b'Very secret'
     PWD_ITERATIONS = 100_000
     JWT_ALGO = 'HS256'
+    ENSURE_ASCII = True
 
